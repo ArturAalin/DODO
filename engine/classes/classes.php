@@ -1,20 +1,24 @@
 <?php
-     // ***Ïîäêëþ÷åíèå
+     // ***ÐŸÐ¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð¸Ðµ
 require_once('lib.class.php');
 require_once('class.user.php');
 require_once('class.html.php');
 require_once('class.actions.php'); 
 require_once('class.template.php'); 
 
-     // ***Áàçîâûé êëàññ
+     // ***Ð‘Ð°Ð·Ð¾Ð²Ñ‹Ð¹ ÐºÐ»Ð°ÑÑ
 class engine {
      function __construct(){
           
      }
      
-     //Ìåòîä äîáàâëåíèå ìîäóëÿ
+     //ÐœÐµÑ‚Ð¾Ð´ Ð´Ð¾Ð±Ð°Ð²Ð»ÐµÐ½Ð¸Ðµ Ð¼Ð¾Ð´ÑƒÐ»Ñ
      public function addMod($name){
-          require_once('engine/mod/mod.' . $name . '.php');
+          ob_start();
+          require('engine/mod/mod.' . $name . '.php');
+          $content = ob_get_contents();
+          ob_end_clean();
+          return $content;
      }
 }
 ?>

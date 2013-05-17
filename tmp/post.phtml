@@ -1,3 +1,7 @@
-<div box-id="<?=$row['id']?>" class="box" style="background: green;"><?=$row['text'];?>
-<input type="button" class="DelPost" data-id="<?=$row['id']?>" value="Удалить"/>
+<div box-id="<?=$row['id']?>" class="post" style="background: green;">
+     <p><?=$row['text'];?></p>
+     <div class="postContent"></div>
+     <div class="postButtons">
+          <input type="button" class="DelPost" data-id="<?=$row['id']?>" value="Удалить"/>
+     </div>  
 </div>

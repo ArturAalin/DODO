@@ -7,18 +7,18 @@ class user{
      
      public $Id;
      
-     //Конструктор
+     //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ
      public function __construct(){
           $this->db = new db();
           $this->db->query("SELECT * FROM `users` WHERE `id` = '". $_COOKIE['id'] ."'");
           $this->userData = $this->db->result; 
-          //ID из сессии
+          //ID РёР· СЃРµСЃСЃРёРё
           if($_SESSION['online'] == true){
                $this->Id = $_SESSION['user_id'];
           }
      }
      
-     //Проверяет на олнайн
+     //РџСЂРѕРІРµСЂСЏРµС‚ РЅР° РѕР»РЅР°Р№РЅ
      public function StatusOnline(){
           if($_SESSION['online'] == true){
                return true;

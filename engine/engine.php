@@ -1,8 +1,8 @@
 <?php
 
-include('classes/classes.php');    //Êëàññû
+include('classes/classes.php');    //ÐšÐ»Ð°ÑÑÑ‹
 
-     // ***Îáúåêòû
+     // ***ÐžÐ±ÑŠÐµÐºÑ‚Ñ‹
 $db = new db();
 
 $engine = new engine();
@@ -15,7 +15,7 @@ $html = new html();
 
 $tmp = new Template();
 
-include('engine/lang/lang.php');   //Ñêðèïò ëîêàëèçàòîð
+include('engine/lang/lang.php');   //Ð¡ÐºÑ€Ð¸Ð¿Ñ‚ Ð»Ð¾ÐºÐ°Ð»Ð¸Ð·Ð°Ñ‚Ð¾Ñ€
 
      // ***Action's
 if(isset ($_POST['act']) or isset($_GET['act'])){
@@ -25,14 +25,14 @@ if(isset ($_POST['act']) or isset($_GET['act'])){
           $varact = $_GET['act'];
      }
      
-     //Ýêøåíû
+     //Ð­ÐºÑˆÐµÐ½Ñ‹
      switch ($varact){
           case login_out:
-          $act->login_out(); //Âîçâðàùàåò bool
+          $act->login_out(); //Ð’Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ bool
           break;
      
           case login_in:
-          $act->login_in($_POST['login'],$_POST['password']); //Âîçâðàùàåò bool
+          $act->login_in($_POST['login'],$_POST['password']); //Ð’Ð¾Ð·Ð²Ñ€Ð°Ñ‰Ð°ÐµÑ‚ bool
           break;
           
           case authStatus:
@@ -41,7 +41,7 @@ if(isset ($_POST['act']) or isset($_GET['act'])){
      }
 }
 
-     //HTML Â AJAX
+     //HTML Ð’ AJAX
 if(isset($_POST['html']) and isset($_POST['ajax'])){
      switch ($_POST['html']){
           case formLogin:
@@ -51,6 +51,7 @@ if(isset($_POST['html']) and isset($_POST['ajax'])){
      }
 }
 
-     //Ìîäóëè
-$engine->addMod('posts');
+//ÐœÐ¾Ð´ÑƒÐ»Ð¸
+//Ð“ÐµÐ½ÐµÑ€Ð¸Ñ€ÑƒÐµÐ¼ ÑˆÐ°Ð±Ð»Ð¾Ð½
+define('TMP_RIGHT_PANEL',$engine->addMod('rightPanel'));
 ?>

@@ -14,11 +14,11 @@ class actions{
           }                 
      }
           
-     //Âõîä
+     //Ð’Ñ…Ð¾Ð´
      public function login_in($login, $pass){ 
                $this->db->query("SELECT `id`,`login`,`password` FROM `users` WHERE `login` = '". $login ."'");
-               $result = $this->db->result->fetch_assoc();//Ïàêóåì â ìàññèâ
-               //Ïðîâåðÿåì
+               $result = $this->db->result->fetch_assoc();//ÐŸÐ°ÐºÑƒÐµÐ¼ Ð² Ð¼Ð°ÑÑÐ¸Ð²
+               //ÐŸÑ€Ð¾Ð²ÐµÑ€ÑÐµÐ¼
                if($this->db->result != NULL){
                     if(setcookie("id", $result['id'], time() + 3600 * 24 * 24, "/") == true and $pass == $result['password'] and $pass != ''){
                          $_SESSION['online'] = true;
@@ -30,7 +30,7 @@ class actions{
                     }     
                }
      }
-     //Ïðîâåðêà íà àâòîðèçàöèþ
+     //ÐŸÑ€Ð¾Ð²ÐµÑ€ÐºÐ° Ð½Ð° Ð°Ð²Ñ‚Ð¾Ñ€Ð¸Ð·Ð°Ñ†Ð¸ÑŽ
      public function authStatus(){
          if(isset($_COOKIE['id']) and $_SESSION['online'] == true){
                echo self::SendBoolAnswer(true);
@@ -40,11 +40,11 @@ class actions{
           
      }
      
-     //Âûõîä
+     //Ð’Ñ‹Ñ…Ð¾Ð´
      public function login_out(){
          if(setcookie("id", NULL, time()+3600, "/") == true){
                session_destroy();
          }
      }     
-}//Êîíåö êëàññà
+}//ÐšÐ¾Ð½ÐµÑ† ÐºÐ»Ð°ÑÑÐ°
 ?>

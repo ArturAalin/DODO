@@ -5,7 +5,7 @@
  * @ver: 1.0.1
  */
 
-#ÁÄ 
+#Ğ‘Ğ” 
 class db{
     private $host;
     
@@ -17,26 +17,35 @@ class db{
     
     protected $mysql;
     
-     /*RESULT-û*/
+     /*RESULT-Ñ‹*/
     public $result;
     
     public $result2;
     
     public $result3;
     
-     //Êîíñòğóêòîğ
+     //ĞšĞ¾Ğ½ÑÑ‚Ñ€ÑƒĞºÑ‚Ğ¾Ñ€
 function __construct($host = NULL, $user = NULL,$password = NULL, $base = NULL, $charset = 'utf8'){
      if($host != NULL or $base != NULL){
+          
           $this->host = $host;
+          
           $this->user = $user;
+          
           $this->password = $password;
+          
           $this->base = $base;
+          
      }else{
-     //Ñòàíäàğòíûå äàííûå
+     //Ğ¡Ñ‚Ğ°Ğ½Ğ´Ğ°Ñ€Ñ‚Ğ½Ñ‹Ğµ Ğ´Ğ°Ğ½Ğ½Ñ‹Ğµ
           $this->host = 'localhost';
+          
           $this->user = 'root';
+          
           $this->password = '';
+          
           $this->base = 'record_note';
+          
      }
         $this->mysql = new mysqli($this->host, $this->user, $this->password, $this->base); 
         $this->mysql->set_charset($charset); 

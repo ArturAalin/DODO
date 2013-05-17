@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
 <html>
-<head>
+<head>     
+     <meta charset="utf-8" />
      <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+      <link href="tmp/img/style.css" rel="stylesheet" type="text/css" />
      <style type="text/css">
      .SYSTEM{
           
@@ -10,18 +12,24 @@
           background: red;
      }
      </style>
+
 </head>
 <title><?=LOC_TITLE_PAGE;?></title>
 <body>
-<?=LOC_AUT;?>
-<div id="all">
-</div>
+ <div id="wrapper">
+          <div id="headBox">Верхний блок</div>
+          <div id="invisibleBox"></div>
+          <div id="contentPosts">
+                 
+                 <button id="GetPosts"><?=LOC_BUTTON_GET_POSTS;?></button>        
+          </div>                            
+                  
+          <div id="rightBox">
+          <?=TMP_RIGHT_PANEL; ?>
+               <?=LOC_AUT; //Выводить статус пользователя?>  <br />
+          </div>
+     </div>
 
-<a id='exit'><?=LOC_BUTTON_UNLOGIN;?></a>
-<a href="#" id="GetPosts"><?=LOC_BUTTON_GET_POSTS;?></a>
-
-<textarea id="textPost"></textarea>
-<input id="sendPost" type="button" />
 <script type="text/javascript" src="ajaxNEW.js"></script>
 </body>
 </html>

@@ -1,5 +1,8 @@
-$(document).ready(function(){     
-     //Клики да кнопочки
+$(document).ready(function(){  
+     //РџРµСЂРµРјРµРЅРЅС‹Рµ
+     var postBlock = '#contentPosts';
+     
+     //РљР»РёРєРё РґР° РєРЅРѕРїРѕС‡РєРё
      $('#exit').click(function(){
           loginOut();
      });
@@ -15,7 +18,7 @@ $(document).ready(function(){
           addPost(text);
      });
      
-     //**Выполняет при загрузке страницы
+     //**Р’С‹РїРѕР»РЅСЏРµС‚ РїСЂРё Р·Р°РіСЂСѓР·РєРµ СЃС‚СЂР°РЅРёС†С‹
 $.ajax({
      type: 'POST',
      dataType: 'json',
@@ -28,22 +31,22 @@ $.ajax({
           }
      }
 }); 
-     //**Функция загрузки логин-формы
+     //**Р¤СѓРЅРєС†РёСЏ Р·Р°РіСЂСѓР·РєРё Р»РѕРіРёРЅ-С„РѕСЂРјС‹
 function loginForm(){
       $.ajax({
           type: "POST",
           dataType: 'html',
           data: {"ajax":true, 'html':'formLogin'},
           success: function(data){
-               $('#all').html(data);
+               $(postBlock).html(data);
                $('#loginin').bind('click', function(){loginIn();});
           }
        });
 } 
 
 
-//*****ВХОД \ ВЫХОД
-     //**Авторизация
+//*****Р’РҐРћР” \ Р’Р«РҐРћР”
+     //**РђРІС‚РѕСЂРёР·Р°С†РёСЏ
 function loginIn(){
      //Data in var
      var login = $('#login').val();
@@ -57,7 +60,7 @@ function loginIn(){
                }//end if
           });
 }
-     //**Выход
+     //**Р’С‹С…РѕРґ
 function loginOut(){
      $.ajax({
           type: 'post',
@@ -68,15 +71,17 @@ function loginOut(){
      });
 }
 
-//*****ДЕЙСТВИЯ ЮЗЕРА
-     //Получение поста
+//*****Р”Р•Р™РЎРўР’РРЇ Р®Р—Р•Р Рђ
+     //РџРѕР»СѓС‡РµРЅРёРµ РїРѕСЃС‚Р°
 function getPosts(nums){
      $.ajax({
           type: 'post',
           data: {'ajax':true, 'post':'', 'Nums':nums},
           success: function(data){
-               $('#all').append(data);
-                deletePost();                                  
+               var html = $(postBlock).html();
+               html = data + html;
+               $(postBlock).html(html);
+               deletePost();                                  
           }
      });
 }
@@ -87,15 +92,15 @@ function addPost(text){
           dataType: 'json',
           data: {'ajax':true, 'post':'add', 'textPost':text},
           success: function(data){
-               var html = $('#all').html();
+               var html = $(postBlock).html();
                html = data + html;
-               $('#all').html(html);
+               $(postBlock).html(html);
                deletePost();
           }
      });
 }
 
-//Удаление поста
+//РЈРґР°Р»РµРЅРёРµ РїРѕСЃС‚Р°
 function deletePost(){
 
      $('.DelPost').on('click', function(){

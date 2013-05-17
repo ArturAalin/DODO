@@ -1,0 +1,52 @@
+ html,body,div,table,tr,td {
+          margin: 0px;
+          padding: 0px;
+     }
+     
+     body{
+          background: url('bg.jpg') center 100% fixed;
+     }
+      
+     button{
+          background: yellow;
+          border: 0px;
+     }
+     
+     
+     #wrapper{
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+     } 
+     
+     #headBox{  
+          height: 55px;  
+          background: gold;
+          position: fixed;  
+          width: 80%;   
+     }
+     #invisibleBox{
+          height: 80px;
+     }
+     
+     #contentPosts{
+          display: inline-block;
+          width: 75%;
+     }
+     
+     #rightBox{
+          display: inline-block;
+          background: green; 
+          float: right;
+          width: 200px;
+     }
+     .post{
+          border: 1px solid white;
+          display: inline-block;
+          width: 300px;
+          margin: 30px;
+     }
+     
+     #GetPosts{
+          
+     }

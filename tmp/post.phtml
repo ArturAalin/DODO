@@ -1,7 +1,8 @@
-<div box-id="<?=$row['id']?>" class="post" style="background: green;">
-     <p><?=$row['text'];?></p>
-     <div class="postContent"></div>
-     <div class="postButtons">
-          <input type="button" class="DelPost" data-id="<?=$row['id']?>" value="Удалить"/>
-     </div>  
-</div>
+	<div class="note" box-id="<?=$row['id']?>" >
+							<div class="preview">
+								<a href="#"><img src="uploads/img/3.jpg" alt=""></a>
+							</div>
+							<div class="post_title">
+								<h1><?=$row['text'];?>{link}</h1>
+							</div>
+	</div>

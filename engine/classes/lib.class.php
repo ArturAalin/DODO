@@ -38,13 +38,13 @@ function __construct($host = NULL, $user = NULL,$password = NULL, $base = NULL, 
           
      }else{
      //Стандартные данные
-          $this->host = 'localhost';
+          $this->host = 'smartdevlab.com';
           
-          $this->user = 'root';
+          $this->user = 'arturaralin';
           
-          $this->password = '';
+          $this->password = '75847845a';
           
-          $this->base = 'record_note';
+          $this->base = 'dodo';
           
      }
         $this->mysql = new mysqli($this->host, $this->user, $this->password, $this->base); 
@@ -66,6 +66,11 @@ function query($query,$option=NULL){
           $this->result = $this->mysql->query($query);
           break;
      }
+}
+
+function dbStatus(){
+     echo $this->mysql->error;
+     $title = 'Тест';
 }
 
 }//Class db end

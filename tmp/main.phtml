@@ -1,35 +1,52 @@
-<!DOCTYPE HTML>
-<html>
-<head>     
-     <meta charset="utf-8" />
-     <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
-      <link href="tmp/img/style.css" rel="stylesheet" type="text/css" />
-     <style type="text/css">
-     .SYSTEM{
-          
-     }
-     .ERROR{
-          background: red;
-     }
-     </style>
-
-</head>
-<title><?=LOC_TITLE_PAGE;?></title>
-<body>
- <div id="wrapper">
-          <div id="headBox">Верхний блок</div>
-          <div id="invisibleBox"></div>
-          <div id="contentPosts">
-                 
-                 <button id="GetPosts"><?=LOC_BUTTON_GET_POSTS;?></button>        
-          </div>                            
-                  
-          <div id="rightBox">
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<title><?=LOC_TITLE_PAGE;?></title>
+		<meta charset="UTF-8" />
+          <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		 <link href="tmp/img/style.css" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="maximum-scale=1">
+		<!--[if lt IE 9]> 
+			<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div id="bg">
+		</div>
+		<section id="wrapper">
+			<header>
+				<div id="header_left">
+					<a href="#"><img src="tmp/img/min_logo.png" /></a>
+                         <div id="loadIMG"></div>
+				</div>
+				<div id="header_right">
+					<a href="#">Друзья</a>
+					<a href="#">Заметки</a>
+				</div>
+			</header>
+			<section id="main">
+				<div id="left">
+			
+				</div>
+				<div id="right">
+					<div id="profile">
+						<a href="#"><img src="./images/users/user.jpg" alt=""></a>
+						<div id="about">
+							<a href="#">kittenlover363</a></h1>
+							<span>
+                                        <?=LOC_AUT; //Выводить статус пользователя?>
+                                        <?if($user->StatusOnline() == true) echo TMP_BUTTON_GET_POSTS; ?>
           <?=TMP_RIGHT_PANEL; ?>
-               <?=LOC_AUT; //Выводить статус пользователя?>  <br />
-          </div>
-     </div>
-
-<script type="text/javascript" src="ajaxNEW.js"></script>
-</body>
+                                   </span>
+						</div>
+					</div>
+		
+				</div>
+			</section>
+			<footer>
+				
+			</footer>
+		</section>
+     <script type="text/javascript" src="ajaxNEW.js"></script>
+	</body>
 </html>

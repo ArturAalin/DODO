@@ -1,24 +1,39 @@
 $(document).ready(function(){  
-     //Переменные
-     var postBlock = '#contentPosts';
+//Переменные
+     
+     var postBlock = '#left';   //Посты   
+     var exitButton = '#exit';     //Кнопка выхода
+     var getPostsButton = '#GetPosts'; //Кнопка получения постов
+     var sendPostsButton = '#sendPost';
      
      //Клики да кнопочки
-     $('#exit').click(function(){
+     $(exitButton).click(function(){
           loginOut();
      });
      
      var nums = 0;
-     $('#GetPosts').click(function(numsPost){
+     $(getPostsButton).click(function(numsPost){
           nums = nums + 1;
           getPosts(nums);
      });
      
-     $('#sendPost').click(function(){
+     $(sendPostsButton).click(function(){
           var text = $('#textPost').val();
           addPost(text);
      });
      
+     
+     
+         $('html').ajaxStart(
+  function(){
+    alert("Запущен ajax-запрос.");
+  }
+);
+
+     
+          
      //**Выполняет при загрузке страницы
+
 $.ajax({
      type: 'POST',
      dataType: 'json',
@@ -74,6 +89,7 @@ function loginOut(){
 //*****ДЕЙСТВИЯ ЮЗЕРА
      //Получение поста
 function getPosts(nums){
+     $('#loadIMG').html("<img src='tmp/img/load.gif' />");
      $.ajax({
           type: 'post',
           data: {'ajax':true, 'post':'', 'Nums':nums},
@@ -81,7 +97,8 @@ function getPosts(nums){
                var html = $(postBlock).html();
                html = data + html;
                $(postBlock).html(html);
-               deletePost();                                  
+               deletePost();   
+               $('#loadIMG').html('');                                             
           }
      });
 }

@@ -17,8 +17,6 @@ class db{
     
     protected $mysql;
     
-    public $MResult;
-    
      /*RESULT-ы*/
     public $result;
     
@@ -68,15 +66,6 @@ function query($query,$option=NULL){
           $this->result = $this->mysql->query($query);
           break;
      }
-}
-
-public function MQuery($query){          
-          $result = $this->mysql->query($query);
-          return   $result;     
-}
-
-function dbStatus(){
-     echo $this->mysql->error;
 }
 
 }//Class db end

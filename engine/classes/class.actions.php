@@ -4,13 +4,19 @@ class actions{
      public $db;
      
      public function __construct(){
+          
           $this->db = new db();
+          
      }
      
-     private function SendBoolAnswer($answer){
+     public function SendBoolAnswer($answer){
+          
           if(is_bool($answer) == true){
+               
                $answer = json_encode(array('answer'=>$answer));
+               
                return $answer;
+               
           }                 
      }
           

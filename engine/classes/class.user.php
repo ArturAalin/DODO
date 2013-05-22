@@ -1,7 +1,7 @@
 <?php
 class user{
      
-     private $db;
+     public $db;
      
      public $userData;
      
@@ -14,16 +14,25 @@ class user{
           
           $this->db = new db();
           
-          $this->db->query("SELECT * FROM `users` WHERE `id` = '". $_COOKIE['id'] ."'");
+          if(isset($_COOKIE['id'])){
+               
+               $this->userData = $this->db->MQuery("SELECT * FROM `users` WHERE `id` = '". $_COOKIE['id'] ."'"); 
+                   
+          }
           
-          $this->userData = $this->db->result; 
+          
           
           //ID из сессии
-          if($_SESSION['online'] == true){
+          if(isset($_SESSION['online'])){
                
-               $this->Id = $_SESSION['user_id'];
-               
+               if($_SESSION['online'] == true){
+                    
+                    $this->Id = $_SESSION['user_id'];
+                    
+               }   
+                
           }
+          
           
           //self::$NickName = self::$userData['nickname'];
           
@@ -31,17 +40,17 @@ class user{
      
      //Проверяет на олнайн
      public function StatusOnline(){
-          
-          if($_SESSION['online'] == true){
-               
-               return true;
-               
-          }else{
-               
-               return false;
-               
-          }
-          
+          if(isset($_SESSION['online'])){
+               if($_SESSION['online'] == true){
+                    
+                    return true;
+                    
+               }else{
+                    
+                    return false;
+                    
+               }     
+          }  
      }
 
 }

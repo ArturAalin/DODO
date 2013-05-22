@@ -11,9 +11,46 @@ require_once('class.repl.php');
      //Функции движка
 class engine {
      
-     function __construct(){
+     function __construct(){}
+     
+     public function getControl($action = null,$options = false){
           
+           if(!is_null($action)){
+               
+               return self::runAction($action,$options);  
+                         
+          } else return 'Не полученно экшена'; 
+           
      }
+     
+     private function runAction($GetAction,$sett){
+          
+          $ActDir = SYSTEM_DIR_ACTIONS;
+          
+          $ActFile = $GetAction . '.php';
+          
+          if(is_dir($ActDir)){
+               
+               $File = $ActDir. '/' . $ActFile;
+               
+               if(is_file($File)){
+                    
+                    include($File);
+                    
+               }else return 'Переменная не является путем к файлу';
+               
+          }else return 'Переменная не является путем для каталога';
+
+          if($sett['act'] == true){
+               
+               return $GetAction;
+               
+          }
+     }    
+
+     
+     
+     //Жир
      
      //Метод добавление модуля
      public function addMod($name,$option = false){

@@ -22,13 +22,7 @@ $(document).ready(function(){
           addPost(text);
      });
      
-     
-     
-         $('html').ajaxStart(
-  function(){
-    alert("Запущен ajax-запрос.");
-  }
-);
+
 
      
           
@@ -80,7 +74,7 @@ function loginOut(){
      $.ajax({
           type: 'post',
           data: {"ajax":true, 'act':'login_out'},
-          success: function(){
+          success: function(data){
                location.reload();
           }
      });
@@ -94,9 +88,7 @@ function getPosts(nums){
           type: 'post',
           data: {'ajax':true, 'post':'', 'Nums':nums},
           success: function(data){
-               var html = $(postBlock).html();
-               html = data + html;
-               $(postBlock).html(html);
+               $(postBlock).append(data);
                deletePost();   
                $('#loadIMG').html('');                                             
           }
@@ -109,9 +101,7 @@ function addPost(text){
           dataType: 'json',
           data: {'ajax':true, 'post':'add', 'textPost':text},
           success: function(data){
-               var html = $(postBlock).html();
-               html = data + html;
-               $(postBlock).html(html);
+               $(postBlock).append(data);
                deletePost();
           }
      });

@@ -77,13 +77,11 @@ class actPosts{
           $nums = $maxPost - (10 * $nums);
           
           //Достаем посты
-          $this->db->query("SELECT * FROM  `notes` WHERE `user_id` = ". $this->user->Id ." and `id` <= ". $nums ."  ORDER BY `id` DESC LIMIT 10");
-          
-          $result = $this->db->result;
+          $res = $this->db->MQuery("SELECT * FROM  `notes` WHERE `user_id` = ". $this->user->Id ." and `id` <= ". $nums ."  ORDER BY `id` DESC LIMIT 10");
           
           ob_start(); #1
           
-               while($row = $result->fetch_array()){
+               while($row = $res->fetch_array()){
                     
                     ob_start();
                     
@@ -107,7 +105,7 @@ class actPosts{
           //Удаление поста
      public function delPost($id){
           
-          $this->db->query('DELETE FROM `notes` WHERE `id` = ' . (int)$id); 
+          $this->db->MQuery('DELETE FROM `notes` WHERE `id` = ' . $id); 
                    
      }
 }
